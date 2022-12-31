@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div class="page">
     <NavBar/>
     <HeaderBanner/>
     <MineKnowledges/>

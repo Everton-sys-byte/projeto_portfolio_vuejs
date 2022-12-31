@@ -35,12 +35,10 @@
         {
             card_image: "https://kinsta.com/pt/wp-content/uploads/sites/3/2021/12/front-end-developer.png",
             card_title: "Desenvolvedor Front-end",
-            card_information: "Testesafdsafadf"
         },
         {
             card_image: "https://alterrasoft.com/wp-content/uploads/2019/05/backend-for-article-2.jpg",
             card_title: "Desenvolvedor Back-end",
-            card_information: "dafssdfasd"
         },
         {
             card_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png",
@@ -50,7 +48,6 @@
         {
             card_image: "https://vuejs.org/images/logo.png",
             card_title: "Desenvolvedor VueJS 3",
-            card_information: "Sou desenvolvedor de VueJS 3",
             card_last: true
         }
     ]
