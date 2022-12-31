@@ -1,10 +1,12 @@
 <template>
     <div class="knowledge">
-        <DefaultTitle title="Meus conhecimentos"/>
         <div class="content">
-            <div class="information-projects">
-                {{ information_projects }}
-                <PrimaryButton information="Visualizar repositórios"/>
+            <div class="title-information">
+                <DefaultTitle title="Meus Projetos"/>
+                <div class="information-projects">
+                    <p>{{ information_projects }}</p>
+                    <PrimaryButton information="Visualizar repositórios"/>
+                </div>
             </div>
             <ul>
                 <li v-for="knowledges in listOfKnowledges " :key="knowledges.index" >
@@ -27,7 +29,7 @@
     import PrimaryButton from '@/components/PrimaryButton.vue'
     import {ref} from 'vue'
 
-    let information_projects = ref('Já produzi projetos voltados para à faculdade')
+    let information_projects = ref('Já produzi projetos voltados para à faculdade e para aumentar o meu nível de aprendizado, tais projetos são públic e podem ser vistos no meu perfil no Github.')
 
     let listOfKnowledges = [
         {
@@ -62,18 +64,26 @@
 
 <style scoped>
     .knowledge{
-        @apply container min-w-full bg-gray-800 px-14 py-3 gap-1;
+        @apply container min-w-full bg-white px-14 py-3 gap-1;
         min-height: 450px;
     }
 
     .content {
-        @apply flex flex-row w-full self-center items-center justify-between;
+        @apply flex flex-row w-full self-center items-center justify-between gap-2;
         height: 400px;
     }
 
+    .title-information {
+        @apply w-2/5
+    }
+
     .information-projects{
-        @apply w-2/5 text-white;
+        @apply text-black;
         max-height: 300px;
+    }
+
+    .information-projects > p {
+        @apply mb-3 text-sm
     }
 
     ul {

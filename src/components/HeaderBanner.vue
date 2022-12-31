@@ -26,7 +26,7 @@
 <style scoped>
     .main-header {
         /*diretiva do tailwindcss @apply*/
-        @apply container min-w-full flex items-end justify-between px-14 bg-gray-600;
+        @apply container min-w-full flex items-end justify-between px-14 bg-neutral-900;
         min-height: 500px;
     }
 
@@ -35,7 +35,7 @@
     }
 
     .information > p:nth-child(1){
-        @apply font-bold text-3xl
+        @apply font-bold text-3xl text-yellow-500
     }
 
     .information > p:nth-child(1)::after{

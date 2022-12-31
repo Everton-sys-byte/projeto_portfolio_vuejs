@@ -28,26 +28,23 @@
 <style scoped>
 
     .horizontal-cards {
-        @apply flex flex-row w-full items-center gap-2 p-2 
+        @apply flex flex-row w-full items-center gap-2 p-2 text-black
     }
 
     .border-bottom {
-        @apply border-b-2
+        @apply border-b border-black
     }
 
     .card-image, img {
-        @apply w-20 h-20;
+        @apply w-20 h-20 rounded;
     }
 
     .card-title {
-        @apply text-base
+        @apply text-base 
     }
 
     .card-content {
-        @apply flex flex-col text-sm
+        @apply flex flex-col text-sm 
     }
-
-    .animate {
-        @apply bg-black
-    }
+ 
 </style>

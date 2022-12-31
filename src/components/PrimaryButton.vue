@@ -13,7 +13,8 @@
 
 <style scoped>
     button {
-        @apply border border-black p-1 w-full rounded bg-gray-900 mt-2 shadow-sm;
+        @apply p-1 w-full rounded bg-yellow-500 mt-2 shadow-sm shadow-black ;
+        color: black;
         transition: 0.5s;
     }
 

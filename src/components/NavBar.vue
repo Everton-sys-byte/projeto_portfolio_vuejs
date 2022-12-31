@@ -16,7 +16,7 @@
         },
         {
             id: 2,
-            type: 'Porfólio'
+            type: 'Conhecimentos'
         },
         {
             id: 3,

@@ -12,6 +12,6 @@
 
 <style scoped>
     h1{
-        @apply text-white font-bold text-3xl;
+        @apply text-black font-bold text-3xl mb-4;
     }
 </style>
