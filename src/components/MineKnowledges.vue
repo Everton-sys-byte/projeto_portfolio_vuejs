@@ -35,6 +35,14 @@
         {
             card_image: "https://kinsta.com/pt/wp-content/uploads/sites/3/2021/12/front-end-developer.png",
             card_title: "Desenvolvedor Front-end",
+            conhecimentos: [
+                {
+                    title_modal: 'Conhecimentos no front-end',
+                    linguagens: [
+                        'HTML5', 'CSS3'
+                    ]
+                }
+            ]
         },
         {
             card_image: "https://alterrasoft.com/wp-content/uploads/2019/05/backend-for-article-2.jpg",
