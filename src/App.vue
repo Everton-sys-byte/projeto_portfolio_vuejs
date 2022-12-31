@@ -1,27 +1,15 @@
 <template>
-  <h1 class="title">Teste</h1>
+  <div class="main-container">
+    <NavBar/>
+    <HeaderBanner/>
+    <MineKnowledges/>
+  </div>
 </template>
 
-<script>
+<script setup>
+import NavBar from '@/components/NavBar.vue'
+import HeaderBanner from '@/components/HeaderBanner.vue'
+import MineKnowledges from './components/MineKnowledges.vue';
 
-export default {
-  name: 'App',
-  components: {
-    
-  }
-}
 </script>
 
-<style>
-
-  /*diretivas do tailwindCSS*/
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
-
-  .title{
-    /*classes*/
-    @apply text-xs italic text-center bg-slate-500
-  }
-</style>
