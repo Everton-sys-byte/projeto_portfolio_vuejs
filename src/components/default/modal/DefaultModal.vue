@@ -99,15 +99,11 @@
     }
     
     @keyframes modalAnimate {
-        0% {
-            display: none;
-        }
-        50% {
-            display: block;
+        from {
             transform: translateY(-30px);
             opacity: 0;
         }
-        100% {
+        to {
             transform: translateY(0px);
             opacity: 1;
         }
