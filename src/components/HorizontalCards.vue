@@ -7,8 +7,9 @@
         <div class="card-content">
             <div class="card-title">{{ props.card_title }}</div>
             <div class="more-information">
+                <!--posso colocar a mesma função em dois elementos diferentes -->
                 <button @click="$emit('showModal',index)">Ver mais</button>
-                <ArrowRight class="icon-animation"/>
+                <ArrowRight @click="$emit('showModal')" class="icon-animation"/>
             </div>
         </div>
     </div>
@@ -45,7 +46,7 @@
     }
 
     .card-image, img {
-        @apply w-20 h-20 rounded;
+        @apply w-20 h-20 rounded-xl;
     }
 
     .card-content {

@@ -31,7 +31,7 @@
 <script setup>
     import DefaultTitle from '@/components/default/title/DefaultTitle.vue'
     import HorizontalCards from '@/components/HorizontalCards.vue'
-    import PrimaryButton from '@/components/PrimaryButton.vue'
+    import PrimaryButton from '@/components/default/button/PrimaryButton.vue'
     import DefaultModal from '@/components/default/modal/DefaultModal.vue'
     import {ref} from 'vue'
 

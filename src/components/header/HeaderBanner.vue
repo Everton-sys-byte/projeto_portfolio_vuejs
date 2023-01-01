@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-    import HeaderFigure from '@/components/HeaderFigure.vue'
-    import PrimaryButton from '@/components/PrimaryButton.vue'
+    import HeaderFigure from '@/components/header/HeaderFigure.vue'
+    import PrimaryButton from '@/components/default/button/PrimaryButton.vue'
 
     import {ref} from 'vue'
 

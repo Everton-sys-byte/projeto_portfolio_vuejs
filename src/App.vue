@@ -8,7 +8,7 @@
 
 <script setup>
 import NavBar from '@/components/NavBar.vue'
-import HeaderBanner from '@/components/HeaderBanner.vue'
+import HeaderBanner from '@/components/header/HeaderBanner.vue'
 import MineKnowledges from './components/MineKnowledges.vue';
 
 </script>

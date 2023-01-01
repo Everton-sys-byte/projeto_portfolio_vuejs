@@ -13,13 +13,6 @@
 
 <style scoped>
     button {
-        @apply p-1 w-full rounded bg-yellow-500 mt-2 shadow-sm shadow-black ;
-        color: black;
-        transition: 0.5s;
-    }
-
-    button:hover {
-        @apply shadow-lg border-white;
-        transform: scaleY(1.1);
+        @apply p-2 w-1/2 rounded-3xl bg-transparent border border-white text-yellow-500 mt-2 shadow-sm shadow-black ;
     }
 </style>
