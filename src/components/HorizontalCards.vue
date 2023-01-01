@@ -7,8 +7,8 @@
         <div class="card-content">
             <div class="card-title">{{ props.card_title }}</div>
             <div class="more-information">
-                <a href="#">Ver mais</a>
-                <ArrowRight size="20" class="icon-animation"/>
+                <button @click="$emit('showModal',index)">Ver mais</button>
+                <ArrowRight class="icon-animation"/>
             </div>
         </div>
     </div>
@@ -16,8 +16,8 @@
 
 <script setup>
     import ArrowRight from 'vue-material-design-icons/ArrowRight'
-    import { defineProps} from 'vue';
-
+    import { defineProps, defineEmits} from 'vue';
+    
     const props = defineProps({
         card_image: String,
         card_title: String,
@@ -26,6 +26,12 @@
             default: false
         }
     })
+
+    const emit = defineEmits([
+        'showModal'
+    ])
+
+    console.log(emit)
 </script>
 
 <style scoped>

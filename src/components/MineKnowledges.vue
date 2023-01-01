@@ -9,62 +9,108 @@
                 </div>
             </div>
             <ul>
-                <li v-for="knowledges in listOfKnowledges " :key="knowledges.index" >
+                <li v-for="(knowledges, index) in listOfKnowledges " :key="knowledges.index">
                     <HorizontalCards 
                     :card_image="knowledges.card_image" 
                     :card_title="knowledges.card_title"
                     :card_information="knowledges.card_information"
                     :card_last="knowledges.card_last"
+                    @showModal="showModal(index)"
                     />
                 </li>
             </ul>
+            <DefaultModal @closeModal="closeModal" :modal_Data_Type="modal_data_type" 
+            :modal_Title="modal_title" :modal_Linguagens="modal_linguagens" 
+            :modal_Frameworks="modal_frameworks" :modal_Status="modal_status"/>
         </div>
     </div>
 </template>
 
 
 <script setup>
-    import DefaultTitle from '@/components/DefaultTitle.vue'
+    import DefaultTitle from '@/components/default/title/DefaultTitle.vue'
     import HorizontalCards from '@/components/HorizontalCards.vue'
     import PrimaryButton from '@/components/PrimaryButton.vue'
+    import DefaultModal from '@/components/default/modal/DefaultModal.vue'
     import {ref} from 'vue'
 
     let information_projects = ref('Já produzi projetos voltados para à faculdade e para aumentar o meu nível de aprendizado, tais projetos são públic e podem ser vistos no meu perfil no Github.')
+
+    //modal variables
+    var modal_status = ref(false)
+    var modal_title = ""
+    var modal_linguagens = ""
+    var modal_frameworks = ""
+    var modal_data_type = ""
 
     let listOfKnowledges = [
         {
             card_image: "https://kinsta.com/pt/wp-content/uploads/sites/3/2021/12/front-end-developer.png",
             card_title: "Desenvolvedor Front-end",
-            conhecimentos: [
-                {
-                    title_modal: 'Conhecimentos no front-end',
+            conhecimentos: {
+                    title_modal: 'Conhecimentos front-end',
                     linguagens: [
-                        'HTML5', 'CSS3'
+                        'HTML5', 
+                        'CSS3'
+                    ],
+                    frameworks: [
+                        'VueJS 3'
                     ]
-                }
-            ]
+                },
+            modal_data_type: 'linguagens'
+            
         },
         {
             card_image: "https://alterrasoft.com/wp-content/uploads/2019/05/backend-for-article-2.jpg",
             card_title: "Desenvolvedor Back-end",
+            conhecimentos: {
+                    title_modal: 'Conhecimento back-end',
+                    linguagens: [
+                        'PHP8',
+                        'Java'
+                    ],
+                    frameworks: [
+                        'Laravel'
+                    ]
+                },
+            modal_data_type: 'linguagens'
+            
         },
         {
             card_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png",
-            card_title: "Desenvolvedor Laravel",
-            card_information: "Sou desenvolvedor Laravel"
+            card_title: "Sistemas operacionais",
+            conhecimentos: {
+                title_modal: "Conhecimentos em sistemas operacionais",
+                text: "Conheço sistemas operacionais como o Linux e o Windows."
+            },
+            modal_data_type: 'sistemas'
         },
         {
             card_image: "https://vuejs.org/images/logo.png",
-            card_title: "Desenvolvedor VueJS 3",
+            card_title: "Utilitários",
+            conhecimentos: {
+                title_modal: "Utilitários e padrões de projetos",
+                text: "Conheço alguns padrões de projeto como clean code, MVC e POO"
+            },
+            modal_data_type: 'utilitarios',
             card_last: true
         }
     ]
 
-    /*
-    const addAnimation = (element) => {
 
+    const showModal = (index) => {
+        //não esquecer o value para a reatividade funcionar caso seja um boolear ou um interger
+        modal_status.value = true
+        modal_data_type = listOfKnowledges[index].modal_data_type
+        modal_title = listOfKnowledges[index].conhecimentos.title_modal
+        modal_linguagens = listOfKnowledges[index].conhecimentos.linguagens
+        modal_frameworks = listOfKnowledges[index].conhecimentos.frameworks
+        //modal_information.value = Array.from(listOfKnowledges[index].conhecimentos.linguagens)
     }
-    */
+
+    const closeModal = () => {
+        modal_status.value = false
+    }
 </script>
 
 <style scoped>
@@ -74,7 +120,7 @@
     }
 
     .content {
-        @apply flex flex-row w-full self-center items-center justify-between gap-2;
+        @apply relative flex flex-row w-full self-center items-center justify-between gap-2;
         height: 400px;
     }
 
