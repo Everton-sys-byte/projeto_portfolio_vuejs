@@ -19,9 +19,10 @@
                     />
                 </li>
             </ul>
-            <DefaultModal @closeModal="closeModal" :modal_Data_Type="modal_data_type" 
+            <DefaultModal v-show="modal_status" @closeModal="closeModal" :modal_Data_Type="modal_data_type" 
             :modal_Title="modal_title" :modal_Linguagens="modal_linguagens" 
-            :modal_Frameworks="modal_frameworks" :modal_Status="modal_status"/>
+            :modal_Frameworks="modal_frameworks" :modal_Databases="modal_databases"
+            :modal_Status="modal_status"/>
         </div>
     </div>
 </template>
@@ -42,6 +43,7 @@
     var modal_linguagens = ""
     var modal_frameworks = ""
     var modal_data_type = ""
+    var modal_databases = ""
 
     let listOfKnowledges = [
         {
@@ -54,7 +56,9 @@
                         'CSS3'
                     ],
                     frameworks: [
-                        'VueJS 3'
+                        'Bootstrap5',
+                        'TailwindCSS',
+                        'VueJS 3',
                     ]
                 },
             modal_data_type: 'linguagens'
@@ -64,13 +68,18 @@
             card_image: "https://alterrasoft.com/wp-content/uploads/2019/05/backend-for-article-2.jpg",
             card_title: "Desenvolvedor Back-end",
             conhecimentos: {
-                    title_modal: 'Conhecimento back-end',
+                    title_modal: 'Conhecimentos back-end',
                     linguagens: [
                         'PHP8',
                         'Java'
                     ],
                     frameworks: [
                         'Laravel'
+                    ],
+                    databases: [
+                        'MySQL',
+                        'SQLServer',
+                        'Firebase'
                     ]
                 },
             modal_data_type: 'linguagens'
@@ -103,8 +112,13 @@
         modal_status.value = true
         modal_data_type = listOfKnowledges[index].modal_data_type
         modal_title = listOfKnowledges[index].conhecimentos.title_modal
-        modal_linguagens = listOfKnowledges[index].conhecimentos.linguagens
-        modal_frameworks = listOfKnowledges[index].conhecimentos.frameworks
+        if(modal_data_type === 'linguagens')
+        {
+            modal_linguagens = listOfKnowledges[index].conhecimentos.linguagens
+            modal_frameworks = listOfKnowledges[index].conhecimentos.frameworks
+            modal_databases = listOfKnowledges[index].conhecimentos.databases
+        }
+
         //modal_information.value = Array.from(listOfKnowledges[index].conhecimentos.linguagens)
     }
 
