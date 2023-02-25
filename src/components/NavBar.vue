@@ -1,41 +1,22 @@
 <template>
     <div class="nav-bar">
         <ul>
-            <li v-for="item in listItems" :key="item.id">{{ item.type }}</li>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Habilidades</a></li>
+            <li><a href="#">Contato</a></li>
         </ul>
-        <NetWorking/>
     </div>
 </template>
 
-<script setup>
-    import NetWorking from '@/components/NetWorking.vue'
-    let listItems = [
-        {
-            id: 1,
-            type: 'Home'
-        },
-        {
-            id: 2,
-            type: 'Conhecimentos'
-        },
-        {
-            id: 3,
-            type: 'Sobre'
-        },
-        {
-            id: 4,
-            type: 'Contato'
-        }
-    ]
-</script>
-
-<style setup>
+<style scoped>
     .nav-bar {
-        @apply container min-w-full py-3 px-14 absolute flex flex-row justify-between items-center z-10
+        @apply w-screen bg-white;
+        z-index: 10;
     }
 
     ul {
-        @apply container w-3/6 text-white flex justify-between
+        @apply py-2 flex flex-row justify-center items-center gap-2 text-black uppercase;
+        height: 60px;
     }
-
 </style>
