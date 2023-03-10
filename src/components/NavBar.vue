@@ -19,7 +19,7 @@ let listItems = ref([
   { name: "inicio" },
   { name: "sobre" },
   { name: "habilidades" },
-  { name: "contatos" },
+  { name: "contato" },
 ]);
 
 const addClass = () => {
