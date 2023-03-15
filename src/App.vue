@@ -1,8 +1,9 @@
 <template>
   <navBar />
   <main>
+    <h1>{{ currentSection }}</h1>
     <section id="#" class="inicio">
-      <socialNetworks />
+      <socialNetworks orientation="col" class="hidden lg:block" />
       <defaultArticle
         transitionName="fade"
         title="Olá, sou Everton Soares"
@@ -13,13 +14,17 @@
           Laravel dentre outras tecnologias que uso para desenvolvimento web."
       >
         <template v-slot:button>
-          <defaultButton value="Entrar em contato" class="primary" />
+          <a href="#contato"><defaultButton value="Entrar em contato" class="primary" /></a>
         </template>
       </defaultArticle>
       <imageBubble />
     </section>
     <section id="sobre" class="sobre">
-      <img class="illustration" v-motion-slide-visible-once-left src="@/assets/illustrations/more_information.svg"/>
+      <img
+        class="illustration"
+        v-motion-slide-visible-once-left
+        src="@/assets/illustrations/more_information.svg"
+      />
       <defaultArticle
         v-motion-slide-visible-once-right
         title="Sobre"
@@ -32,13 +37,38 @@
     <section id="habilidades" class="habilidades">
       <informationCards
         v-motion-pop-visible-once
-        v-for="card in cards"
-        :key="card.index"
-        :title="card.title"
-        :skills="card.skills"
+        v-for="cardSkill in cardSkills"
+        :key="cardSkill.index"
+        :title="cardSkill.title"
+        :skills="cardSkill.skills"
       />
     </section>
-    <section id="contato" class="contato"></section>
+    <section id="contato" class="contato">
+      <div class="container" v-motion-slide-visible-once-top>
+        <informationCards isCentered isHeaderColorPrimary
+          v-for="cardContato in cardContatos"
+          :key="cardContato.index"
+          :title="cardContato.title"
+          :text="cardContato.text"
+          :card_icon="cardContato.card_icon"
+        />
+        <socialNetworks orientation="row" />
+      </div>
+      <form @submit.prevent="" v-motion-slide-visible-once-bottom>
+        <div class="form-title-wrapper">
+          <fa icon="fa-solid fa-paper-plane" />
+          <h2>Nos envie uma mensagem</h2>
+        </div>
+        <input type="text" name="name" id="name" placeholder="Nome completo" />
+        <input type="email" name="email" id="email" placeholder="Email" />
+        <textarea rows="8"
+          name="mensagem"
+          id="mensagem"
+          placeholder="Mensagem"
+        ></textarea>
+        <defaultButton value="Enviar" class="primary" @click="sendForm" />
+      </form>
+    </section>
   </main>
 </template>
 
@@ -50,8 +80,8 @@ import imageBubble from "@/components/imageBubble.vue";
 import informationCards from "@/components/informationCards.vue";
 import defaultButton from "@/components/defaultButton.vue";
 
-/* CARD INFORMATIONS */
-const cards = [
+/* CARD DE SKILLS */
+const cardSkills = [
   {
     title: "Soft Skills",
     skills: [
@@ -76,7 +106,6 @@ const cards = [
       },
     ],
   },
-
   {
     title: "Aprendendo",
     skills: [
@@ -87,6 +116,37 @@ const cards = [
     ],
   },
 ];
+
+/* CARD DE CONTATOS */
+const cardContatos = [
+  {
+    card_icon: "fa-solid fa-phone",
+    title: "Celular",
+    text: "(11) 960818682",
+  },
+  {
+    card_icon: "fa-solid fa-envelope",
+    title: "Email",
+    text: "everton_dev@hotmail.com",
+  },
+];
+
+/* onMounted(()=>{
+  console.log('mounted')
+  /* observer 
+  const observer = new IntersectionObserver((/* entradas  entries)=>{
+    entries.forEach((entry) =>{
+      if(entry.intersectionRatio > 0){
+        currentSection.value = entry.target.getAttribute('id')
+      }
+    })
+  })
+
+  document.querySelectorAll('section').forEach((section) => {
+    observer.observe(section)
+  })
+}) 
+*/
 </script>
 
 <style scoped>
@@ -95,17 +155,18 @@ const cards = [
 .sobre,
 .habilidades,
 .contato {
-  height: 100vh;
+  @apply flex items-center justify-around;
+  min-height: 100vh;
 }
 
 /* APRESENTATION */
 .inicio {
-  @apply w-full px-16 flex items-center justify-around;
+  @apply w-full flex-col-reverse mt-16 lg:mt-0 lg:flex-row;
 }
 
 /* SOBRE */
 .sobre {
-  @apply flex flex-row gap-40 p-2 items-center justify-center;
+  @apply p-10 xl:p-0 flex-col lg:flex-row;
 }
 
 .sobre .illustration {
@@ -115,6 +176,35 @@ const cards = [
 
 /* HABILIDADES */
 .habilidades {
-  @apply flex flex-row justify-center items-center;
+  @apply flex-col xl:flex-row flex-wrap;
+}
+
+/* CONTATO */
+.contato {
+  @apply flex-col mt-20 xl:mt-0 lg:flex-row;
+}
+
+.contato .container {
+  @apply flex flex-col items-center gap-10;
+  max-width: calc(100vw / 3);
+}
+.contato form {
+  @apply p-2 flex flex-col gap-10 w-full xl:w-2/4;
+  min-height: 400px;
+}
+
+.contato form .form-title-wrapper {
+  @apply flex flex-row gap-5 items-center text-cyan-600 text-2xl;
+  font-family: "Montserrat", sans-serif;
+}
+.contato form input, textarea {
+  @apply p-2;
+  outline: none;
+  transition: all 0.5s ease;
+}
+
+.contato form input:focus,
+textarea:focus {
+  @apply border border-cyan-600;
 }
 </style>

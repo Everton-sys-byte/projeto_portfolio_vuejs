@@ -31,7 +31,7 @@ const props = defineProps({
 <style scoped>
 article {
   @apply flex flex-col justify-center gap-3;
-  font-family: "Montserrat", sans-serif;
+/*   font-family: "Montserrat", sans-serif; */
   width: 500px;
 }
 

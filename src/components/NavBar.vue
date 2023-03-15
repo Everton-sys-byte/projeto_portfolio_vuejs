@@ -52,7 +52,7 @@ const addIsActive = (index) => {
 </script>
 <style scoped>
 .nav-bar {
-  @apply w-full absolute bg-white;
+  @apply w-full absolute top-0 bg-white;
   z-index: 10;
 }
 

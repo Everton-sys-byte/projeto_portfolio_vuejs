@@ -38,9 +38,11 @@ import {
     faBookOpenReader,
     faK,
     faCloud,
+    faPaperPlane,
+    faEnvelope,
 } from '@fortawesome/free-solid-svg-icons'
 
 /* definindo na biblioteca os icones que vou usar */
-library.add(faPhone, faTwitter, faGithub, faLinkedinIn, faCircleInfo, faHtml5, faCss3Alt, faVuejs, faLaravel, faBootstrap, faHandshakeAngle, faEye, faUsers, faBookOpenReader, faDocker, faNode, faK, faCloud)
+library.add(faPhone, faTwitter, faGithub, faLinkedinIn, faCircleInfo, faHtml5, faCss3Alt, faVuejs, faLaravel, faBootstrap, faHandshakeAngle, faEye, faUsers, faBookOpenReader, faDocker, faNode, faK, faCloud, faPaperPlane, faEnvelope)
 
 createApp(App).use(MotionPlugin).component('fa', FontAwesomeIcon).mount('#app')

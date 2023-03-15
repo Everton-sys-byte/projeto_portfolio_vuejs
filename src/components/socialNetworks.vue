@@ -1,7 +1,7 @@
 <template>
   <div class="social-networks">
     <transition-group 
-    tag="ul" 
+    tag="ul" :class="props.orientation"
     @before-enter="beforeEnter" 
     @enter="enter"
      appear>
@@ -15,9 +15,16 @@
 <script setup>
 import gsap from 'gsap'
 
+const props = defineProps( {
+  orientation : {
+    type : String,
+    required : true,
+  }
+})
+
 const networks = [
-  { name: "Twitter", url: "#", icon_source: "fa-twitter" },
-  { name: "GitHub", url: "#", icon_source: "fa-github" },
+  { name: "Twitter", url: "https://twitter.com/PDev_Everton", icon_source: "fa-twitter" },
+  { name: "GitHub", url: "https://github.com/Everton-sys-byte", icon_source: "fa-github" },
   { name: "Linkedin", url: "https://www.linkedin.com/in/deveverton/", icon_source: "fa-linkedin-in" },
 ];
 
@@ -41,7 +48,7 @@ const enter = (element, done) =>{
 
 <style>
     .social-networks ul {
-        @apply flex flex-col gap-2;
+        @apply flex gap-2;
     }
 
     .social-networks ul li {
@@ -50,5 +57,13 @@ const enter = (element, done) =>{
 
     .social-networks ul li:hover {
         @apply text-cyan-700;
+    }
+
+    .row {
+      @apply flex-row
+    }
+
+    .col {
+      @apply flex-col
     }
 </style>
