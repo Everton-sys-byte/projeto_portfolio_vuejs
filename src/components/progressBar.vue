@@ -7,7 +7,7 @@
 <script setup>
     const props = defineProps({
         progress: {
-            type: Int16Array,
+            type: String,
             required: true
         }
     })

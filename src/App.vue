@@ -1,8 +1,8 @@
 <template>
   <navBar />
   <main>
-    <h1>{{ currentSection }}</h1>
     <section id="#" class="inicio">
+      <div id="inicio" class="headerTitle">inicio</div>
       <socialNetworks orientation="col" class="hidden lg:block" />
       <defaultArticle
         transitionName="fade"
@@ -20,6 +20,7 @@
       <imageBubble />
     </section>
     <section id="sobre" class="sobre">
+      <div id="sobre" class="headerTitle">sobre</div>
       <img
         class="illustration"
         v-motion-slide-visible-once-left
@@ -35,6 +36,7 @@
       />
     </section>
     <section id="habilidades" class="habilidades">
+      <div id="habilidades" class="headerTitle">habilidades</div>
       <informationCards
         v-motion-pop-visible-once
         v-for="cardSkill in cardSkills"
@@ -44,6 +46,7 @@
       />
     </section>
     <section id="contato" class="contato">
+      <div id="contato" class="headerTitle">contato</div>
       <div class="container" v-motion-slide-visible-once-top>
         <informationCards isCentered isHeaderColorPrimary
           v-for="cardContato in cardContatos"
@@ -70,6 +73,7 @@
       </form>
     </section>
   </main>
+  <footer>&copy; Copyright Everton Soares - 2023</footer>
 </template>
 
 <script setup>
@@ -94,16 +98,12 @@ const cardSkills = [
   {
     title: "Hard Skills",
     skills: [
-      { item: "Tailwindcss", icon_source: "", progress: 70 },
-      { item: "Vuejs", icon_source: "fa-brands fa-vuejs", progress: 75 },
-      { item: "Laravel", icon_source: "fa-brands fa-laravel", progress: 85 },
-      { item: "HTML5", icon_source: "fa-brands fa-html5", progress: 90 },
-      { item: "CSS3", icon_source: "fa-brands fa-css3-alt", progress: 95 },
-      {
-        item: "Bootstrap 5",
-        icon_source: "fa-brands fa-bootstrap",
-        progress: 99,
-      },
+      { item: "Tailwindcss", icon_source: "", progress: "70" },
+      { item: "Vuejs", icon_source: "fa-brands fa-vuejs", progress: "75" },
+      { item: "Laravel", icon_source: "fa-brands fa-laravel", progress: "85" },
+      { item: "HTML5", icon_source: "fa-brands fa-html5", progress: "90" },
+      { item: "CSS3", icon_source: "fa-brands fa-css3-alt", progress: "95" },
+      { item: "Bootstrap 5", icon_source: "fa-brands fa-bootstrap", progress: "99",},
     ],
   },
   {
@@ -130,23 +130,6 @@ const cardContatos = [
     text: "everton_dev@hotmail.com",
   },
 ];
-
-/* onMounted(()=>{
-  console.log('mounted')
-  /* observer 
-  const observer = new IntersectionObserver((/* entradas  entries)=>{
-    entries.forEach((entry) =>{
-      if(entry.intersectionRatio > 0){
-        currentSection.value = entry.target.getAttribute('id')
-      }
-    })
-  })
-
-  document.querySelectorAll('section').forEach((section) => {
-    observer.observe(section)
-  })
-}) 
-*/
 </script>
 
 <style scoped>
@@ -155,8 +138,12 @@ const cardContatos = [
 .sobre,
 .habilidades,
 .contato {
-  @apply flex items-center justify-around;
+  @apply flex items-center justify-around relative;
   min-height: 100vh;
+}
+
+section .headerTitle {
+  @apply absolute top-0 opacity-0;
 }
 
 /* APRESENTATION */
@@ -206,5 +193,10 @@ const cardContatos = [
 .contato form input:focus,
 textarea:focus {
   @apply border border-cyan-600;
+}
+
+/* RODAPÉ */
+footer {
+  @apply p-2 text-center
 }
 </style>
