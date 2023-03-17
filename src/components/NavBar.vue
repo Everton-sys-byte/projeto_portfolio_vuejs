@@ -40,7 +40,7 @@ onMounted(()=>{
     rootMargin: "0px 0px -90% 0px"
   })
 
-  document.querySelectorAll('section .headerTitle').forEach((section) => {
+  document.querySelectorAll('section').forEach((section) => {
     observer.observe(section)
   })
 })

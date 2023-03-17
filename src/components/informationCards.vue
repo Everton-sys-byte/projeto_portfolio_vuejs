@@ -17,7 +17,7 @@
               {{ skill.progress }}%
             </div>
           </div>
-          <progressBar v-if="skill.progress" :progress="skill.progress" />
+          <ProgressBar v-if="skill.progress" :progress="skill.progress" />
         </li>
       </ul>
     </div>
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import progressBar from "@/components/progressBar.vue";
+import ProgressBar from "@/components/ProgressBar";
 
 const props = defineProps({
   title: String,

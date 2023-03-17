@@ -1,10 +1,9 @@
 <template>
-  <navBar />
+  <NavBar />
   <main>
-    <section id="#" class="inicio">
-      <div id="inicio" class="headerTitle">inicio</div>
-      <socialNetworks orientation="col" class="hidden lg:block" />
-      <defaultArticle
+    <section id="inicio" class="inicio">
+      <SocialNetworks orientation="col" class="hidden lg:block" />
+      <DefaultArticle
         transitionName="fade"
         title="Olá, sou Everton Soares"
         subTitle="Full Stack Developer"
@@ -14,19 +13,18 @@
           Laravel dentre outras tecnologias que uso para desenvolvimento web."
       >
         <template v-slot:button>
-          <a href="#contato"><defaultButton value="Entrar em contato" class="primary" /></a>
+          <a href="#contato"><DefaultButton value="Entrar em contato" class="primary" /></a>
         </template>
-      </defaultArticle>
-      <imageBubble />
+      </DefaultArticle>
+      <ImageBubble />
     </section>
     <section id="sobre" class="sobre">
-      <div id="sobre" class="headerTitle">sobre</div>
       <img
         class="illustration"
         v-motion-slide-visible-once-left
         src="@/assets/illustrations/more_information.svg"
       />
-      <defaultArticle
+      <DefaultArticle
         v-motion-slide-visible-once-right
         title="Sobre"
         content="Me chamo Everton Soares, tenho 23 anos e atualmente 
@@ -36,8 +34,7 @@
       />
     </section>
     <section id="habilidades" class="habilidades">
-      <div id="habilidades" class="headerTitle">habilidades</div>
-      <informationCards
+      <InformationCards
         v-motion-pop-visible-once
         v-for="cardSkill in cardSkills"
         :key="cardSkill.index"
@@ -46,9 +43,8 @@
       />
     </section>
     <section id="contato" class="contato">
-      <div id="contato" class="headerTitle">contato</div>
       <div class="container" v-motion-slide-visible-once-top>
-        <informationCards isCentered isHeaderColorPrimary
+        <InformationCards isCentered isHeaderColorPrimary
           v-for="cardContato in cardContatos"
           :key="cardContato.index"
           :title="cardContato.title"
@@ -69,7 +65,7 @@
           id="mensagem"
           placeholder="Mensagem"
         ></textarea>
-        <defaultButton value="Enviar" class="primary" @click="sendForm" />
+        <DefaultButton value="Enviar" class="primary" @click="sendForm" />
       </form>
     </section>
   </main>
@@ -77,12 +73,12 @@
 </template>
 
 <script setup>
-import navBar from "@/components/navBar.vue";
-import socialNetworks from "@/components/socialNetworks.vue";
-import defaultArticle from "@/components/defaultArticle.vue";
-import imageBubble from "@/components/imageBubble.vue";
-import informationCards from "@/components/informationCards.vue";
-import defaultButton from "@/components/defaultButton.vue";
+import NavBar from "@/components/NavBar";
+import SocialNetworks from "./components/SocialNetworks"
+import DefaultArticle from "@/components/DefaultArticle"
+import DefaultButton from "@/components/DefaultButton"
+import ImageBubble from "@/components/ImageBubble"
+import InformationCards from "./components/InformationCards";
 
 /* CARD DE SKILLS */
 const cardSkills = [
@@ -134,16 +130,13 @@ const cardContatos = [
 
 <style scoped>
 /* HEIGHT DAS SECTIONS */
+
 .inicio,
 .sobre,
 .habilidades,
 .contato {
   @apply flex items-center justify-around relative;
   min-height: 100vh;
-}
-
-section .headerTitle {
-  @apply absolute top-0 opacity-0;
 }
 
 /* APRESENTATION */
